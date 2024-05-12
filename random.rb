@@ -1,15 +1,16 @@
-@parsons = %w[A B C D E F]
+# frozen_string_literal: true
 
-def shuffle_three_three
-  @parsons.shuffle!
-  p @parsons[0..2]
-  p @parsons[3..5]
-end
+parson = %w[A B C D E F]
 
-def shuffle_two_four
-  @parsons.shuffle!
-  p @parsons[0..1]
-  p @parsons[2..5]
-end
+rand_nuum = rand(1..2)
 
-rand(2).zero? ? shuffle_three_three : shuffle_two_four
+parson.shuffle!
+
+p parson[0..rand_nuum]
+p parson[rand_nuum + 1..5]
+
+# メモ マジックナンバー排除
+# rand_nuum = rand(2..3)
+# parson.shuffle!
+# p parson.first(rand_nuum)
+# p parson.last(parson.length - rand_nuum)
